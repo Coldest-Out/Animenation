@@ -1,5 +1,9 @@
 .navbar {
   height: 80px;
+  position: fixed;
+  z-index: 9999;
+  background-color: azure;
+  width: 100%;
 
   .wrapper {
     padding: 10px 30px;
