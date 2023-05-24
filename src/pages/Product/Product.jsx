@@ -62,7 +62,7 @@ const Product = () => {
 					<span>Tag: Anime, Cosplay, Demon Slayer</span>
 				</div>
 				<hr />
-				<div className="details">
+				<div className="info">
 					<span>DESCRIPTION</span>
 					<hr />
 					<span>ADDITIONAL INFORMATION</span>
