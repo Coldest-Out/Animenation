@@ -3,6 +3,7 @@ import Navbar from '../../components/Navbar/Navbar';
 import List from '../../components/List/List';
 import './Products.scss';
 import { useParams } from 'react-router-dom';
+import CategoryImg from '/img/categoryImg.png';
 
 const Products = () => {
 
@@ -57,6 +58,7 @@ const Products = () => {
 				</div>
 			</div>
 			<div className="right">
+			<img className='catImg' src={CategoryImg}></img>
 			<List catId={catId} maxPrice={maxPrice} sort={sort}/>
 
 			</div>
