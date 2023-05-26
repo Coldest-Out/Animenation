@@ -9,7 +9,7 @@ const List = () => {
 			id: 1,
 			img: "../../../public/img/anime-longsleeve1.jpg",
 			img2: "../../../public/img/anime-longsleeve1.jpg",
-			title: "Long Sleeve Graphic T-Shirt",
+			title: "Anime T-Shirt",
 			isNew: true,
 			oldPrice: 19,
 			price: 12,
