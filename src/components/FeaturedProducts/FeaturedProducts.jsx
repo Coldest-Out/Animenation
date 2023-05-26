@@ -1,14 +1,17 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
 import Card from "../Card/Card";
 import './FeaturedProducts.scss';
+import axios from 'axios';
 
 const FeaturedProducts = ({type}) => {
 
 	const data = [
 		{
 			id: 1,
-			img: "../../../public/img/anime-longsleeve1.jpg",
-			img2: "../../../public/img/anime-longsleeve1.jpg",
+			img: "/img/anime-longsleeve1.jpg",
+			img2: "/img/anime-longsleeve2.jpg",
 			title: "Long Sleeve Graphic T-Shirt",
 			isNew: true,
 			oldPrice: 19,
@@ -16,8 +19,8 @@ const FeaturedProducts = ({type}) => {
 		},
 		{
 			id: 2,
-			img: "../../../public/img/anime-coat1.jpg",
-			img2: "../../../public/img/anime-coat2.jpg",
+			img: "/img/anime-coat1.jpg",
+			img2: "/img/anime-coat2.jpg",
 			title: "Anime Coat",
 			isNew: true,
 			oldPrice: 19,
@@ -25,21 +28,41 @@ const FeaturedProducts = ({type}) => {
 		},
 		{
 			id: 3,
-			img: "../../../public/img/anime-pants1.jpg",
-			img2: "../../../public/img/anime-pants2.jpg",
+			img: "/img/anime-pants1.jpg",
+			img2: "/img/anime-pants2.jpg",
 			title: "Anime Pants",
 			oldPrice: 19,
 			price: 12,
 		},
 		{
 			id: 4,
-			img: "../../../public/img/anime-hat1.jpg",
-			img2: "../../../public/img/anime-hat2.jpg",
+			img: "/img/anime-hat1.jpg",
+			img2: "/img/anime-hat2.jpg",
 			title: "Anime Hats",
 			oldPrice: 19,
 			price: 12,
 		},
 	];
+
+	const [products, setProducts] = useState([]);
+
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const data = await axios.get(`http://localhost:5678/api/products/`, 
+				{
+						headers: {
+							Authorization: "Bearer " + process.env.REACT_APP_API_TOKEN,
+						},
+					}
+				);
+				console.log(data);
+			}catch (err) {
+				console.log(err);
+			}
+		};
+		fetchData();
+	},[])
 
 
 	return (
