@@ -7,56 +7,21 @@ import axios from 'axios';
 
 const FeaturedProducts = ({type}) => {
 
-	const data = [
-		{
-			id: 1,
-			img: "/img/anime-longsleeve1.jpg",
-			img2: "/img/anime-longsleeve2.jpg",
-			title: "Long Sleeve Graphic T-Shirt",
-			isNew: true,
-			oldPrice: 19,
-			price: 12,
-		},
-		{
-			id: 2,
-			img: "/img/anime-coat1.jpg",
-			img2: "/img/anime-coat2.jpg",
-			title: "Anime Coat",
-			isNew: true,
-			oldPrice: 19,
-			price: 12,
-		},
-		{
-			id: 3,
-			img: "/img/anime-pants1.jpg",
-			img2: "/img/anime-pants2.jpg",
-			title: "Anime Pants",
-			oldPrice: 19,
-			price: 12,
-		},
-		{
-			id: 4,
-			img: "/img/anime-hat1.jpg",
-			img2: "/img/anime-hat2.jpg",
-			title: "Anime Hats",
-			oldPrice: 19,
-			price: 12,
-		},
-	];
-
-	const [products, setProducts] = useState([]);
+	const [data, setData] = useState([]);
 
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const data = await axios.get(`http://localhost:5678/api/products/`, 
+				const res = await axios.get(`http://localhost:5678/api/products?populate=*&[filters][type][$eq]=${type}`, 
 				{
 						headers: {
-							Authorization: "Bearer " + process.env.REACT_APP_API_TOKEN,
+							Authorization: "Bearer" + process.env.REACT_APP_API_TOKEN,
+
 						},
 					}
 				);
-				console.log(data);
+				console.log(res);
+				setData(res.data.data);
 			}catch (err) {
 				console.log(err);
 			}
@@ -70,12 +35,14 @@ const FeaturedProducts = ({type}) => {
 			<div className="top">
 				{/* <h1>{data.map (type => <div>{data.type}</div>)} products</h1> */}
 				<h1>{type} products</h1>
-				<p>Our amazing anime brand clothing is a testament to our passion for Japanese animation, with each design capturing the essence of beloved characters and iconic moments. The attention to detail and quality craftsmanship of our apparel showcases our commitment to providing fans with a truly immersive and authentic experience. From vibrant, intricately embroidered jackets to stylish graphic tees that evoke nostalgia, our anime brand clothing is a perfect fusion of fashion and fandom, making it a must-have for anime enthusiasts everywhere.</p>
+				<h3>Our amazing anime brand clothing is a testament to our passion for Japanese animation, with each design capturing the essence of beloved characters and iconic moments. The attention to detail and quality craftsmanship of our apparel showcases our commitment to providing fans with a truly immersive and authentic experience. From vibrant, intricately embroidered jackets to stylish graphic tees that evoke nostalgia, our anime brand clothing is a perfect fusion of fashion and fandom, making it a must-have for anime enthusiasts everywhere.</h3>
 			</div>
-			<div className="bottom">
-				{data.map(item => (
-					<Card item={item} key={item.id} />
-				))}
+			<div className='container'>
+				<div className="bottom">
+					{data.map(item => (
+						<Card item={item} key={item.id} />
+					))}
+				</div>
 			</div>
 		</div>
 	);
