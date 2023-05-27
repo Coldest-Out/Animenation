@@ -1,12 +1,12 @@
 import React from 'react';
 import './Categories.scss';
 import { Link } from 'react-router-dom';
-import AnimeCat1 from '../../../public/img/anime-cat1.jpeg';
-import AnimeCat2 from '../../../public/img/anime-cat2.png';
-import AnimeCat3 from '../../../public/img/anime-cat3.jpeg';
-import AnimeCat4 from '../../../public/img/anime-cat4.jpeg';
-import AnimeCat5 from '../../../public/img/anime-cat5.png';
-import AnimeCat6 from '../../../public/img/anime-cat6.jpeg';
+import AnimeCat1 from '/img/anime-cat1.jpeg';
+import AnimeCat2 from '/img/anime-cat2.png';
+import AnimeCat3 from '/img/anime-cat3.jpeg';
+import AnimeCat4 from '/img/anime-cat4.jpeg';
+import AnimeCat5 from '/img/anime-cat5.png';
+import AnimeCat6 from '/img/anime-cat6.jpeg';
 
 const Categories = () => {
 	return (
