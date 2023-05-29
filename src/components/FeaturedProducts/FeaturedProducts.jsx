@@ -1,9 +1,9 @@
 import React from 'react';
-//import { useEffect } from 'react';
-//import { useState } from 'react';
+// import { useEffect } from 'react';
+// import { useState } from 'react';
 import Card from "../Card/Card";
 import './FeaturedProducts.scss';
-//import axios from 'axios';
+// import axios from 'axios';
 import useFetch from '../../hooks/useFetch';
 
 // const FeaturedProducts = ({type}) => {
@@ -53,7 +53,7 @@ import useFetch from '../../hooks/useFetch';
           : loading
           ? "loading"
           : data?.map((item) => <Card item={item} key={item.id} />)}
-      </div>
+      	</div>
 			</div>
 		</div>
 	);
